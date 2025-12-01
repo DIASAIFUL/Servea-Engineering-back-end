@@ -1,6 +1,7 @@
 const createOtpTemplate = (
   code: string,
   email?: string,
+  name?: string,
   companyName: string = 'Your Company',
 ): string => `
   <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 20px auto; background-color: #f9fafb; padding: 24px;">
@@ -14,7 +15,7 @@ const createOtpTemplate = (
       
       <!-- Body -->
       <main style="padding: 32px 24px; text-align: center; color: #374151;">
-        <p style="font-size: 16px; margin: 0 0 16px;">Hi ${email || 'there'},</p>
+        <p style="font-size: 16px; margin: 0 0 16px;">Hi ${name || email || 'there'},</p>
         <p style="font-size: 15px; line-height: 1.6; margin: 0 0 24px;">
           We received a request to verify your account. Please use the following one-time code:
         </p>

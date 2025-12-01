@@ -16,7 +16,7 @@ const sendMailer = async (
     },
   });
   const info = await transporter.sendMail({
-    from: `"Saiful Islam" ${config.email.from}`,
+    from: `"Servea Engineering Platform" ${config.email.from}`,
     to: email,
     subject,
     html,

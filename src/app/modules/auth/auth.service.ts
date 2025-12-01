@@ -99,7 +99,7 @@ const registerUser = async (
   await sendMailer(
     result.email,
     result.firstName + ' ' + result.lastName,
-    createOtpTemplate(otp, result.email, 'Saiful Islam'),
+    createOtpTemplate(otp, result.email, result.firstName + ' ' + result.lastName,'Servea Engineering Platform'),
   );
 
   return {
