@@ -1,0 +1,90 @@
+import { Router } from 'express';
+import { userRoutes } from '../modules/user/user.routes';
+import { authRoutes } from '../modules/auth/auth.routes';
+import { serviceRoutes } from '../modules/service/service.routes';
+import { industryRouter } from '../modules/industri/industri.routes';
+import { blogRouter } from '../modules/blog/blog.routes';
+import { newsletterRouter } from '../modules/newsletter/newsletter.routes';
+import { projectRouter } from '../modules/project/project.route';
+import { contactRouter } from '../modules/contact/contact.routes';
+import { reviewRouter } from '../modules/review/review.routes';
+import { dashboardRouter } from '../modules/dashboard/dashboard.routes';
+import { bookingRouter } from '../modules/booking/booking.routes';
+import { badgeRouter } from '../modules/badge/badge.routes';
+import { paymentRouter } from '../modules/payment/payment.routes';
+import { assignHourRouter } from '../modules/assignHours/assignHours.routes';
+import { faqRouter } from '../modules/faq/faq.routes';
+import { lavelUpRouter } from '../modules/lavel/lavel.routes';
+
+const router = Router();
+
+const moduleRoutes = [
+  {
+    path: '/user',
+    route: userRoutes,
+  },
+  {
+    path: '/auth',
+    route: authRoutes,
+  },
+  {
+    path: '/service',
+    route: serviceRoutes,
+  },
+  {
+    path: '/industry',
+    route: industryRouter,
+  },
+  {
+    path: '/blog',
+    route: blogRouter,
+  },
+  {
+    path: '/newsletter',
+    route: newsletterRouter,
+  },
+  {
+    path: '/project',
+    route: projectRouter,
+  },
+  {
+    path: '/contact',
+    route: contactRouter,
+  },
+  {
+    path: '/review',
+    route: reviewRouter,
+  },
+  {
+    path: '/dashboard',
+    route: dashboardRouter,
+  },
+  {
+    path: '/booking',
+    route: bookingRouter,
+  },
+  {
+    path: '/badge',
+    route: badgeRouter,
+  },
+  {
+    path: '/payment',
+    route: paymentRouter,
+  },
+  {
+    path: '/assignHour',
+    route: assignHourRouter,
+  },
+  {
+    path: '/faq',
+    route: faqRouter,
+  },
+  {
+    path: '/lavel',
+    route: lavelUpRouter,
+  },
+];
+
+moduleRoutes.forEach((route) => router.use(route.path, route.route));
+
+export default router;

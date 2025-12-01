@@ -1,0 +1,27 @@
+import express from 'express';
+import { authController } from './auth.controller';
+import auth from '../../middlewares/auth';
+import userRole from '../user/user.constan';
+import { fileUploader } from '../../helper/fileUploder';
+
+const router = express.Router();
+
+router.post(
+  '/register',
+  fileUploader.upload.single('profileImage'),
+  authController.registerUser,
+);
+router.post('/login', authController.loginUser);
+router.post('/refresh-token', authController.refreshToken);
+router.post('/forgot-password', authController.forgotPassword);
+router.post('/verify-email', authController.verifyEmailStatus);
+router.post('/verify-otp', authController.verifyEmailOTP);
+router.post('/reset-password', authController.resetPassword);
+router.post('/logout', authController.logoutUser);
+router.post(
+  '/change-password',
+  auth(userRole.Admin, userRole.Engineer, userRole.User),
+  authController.changePassword,
+);
+
+export const authRoutes = router;
